@@ -1,17 +1,44 @@
 <template>
-  <div>Parent Component</div>
-  <child-component v-for="(todo, idx) in todos" :key="idx" :text="todo" />
+  <div id="lifecycle">{{ message }}</div>
+  <button @click="message = 'Halo Dunia'">Update</button>
 </template>
 
 <script>
-import ChildComponent from "./components/ChildComponent.vue";
-
 export default {
   data() {
     return {
-      todos: ["Pertama", "Kedua", "Ketiga"],
+      message: "Hello World",
     };
   },
-  components: { ChildComponent },
+  beforeCreate() {
+    console.log("Before Create");
+  },
+  created() {
+    console.log("Created");
+    console.log(this.message);
+    console.log(document.getElementById("lifecycle"));
+  },
+  beforeMount() {
+    console.log("Before Mount");
+  },
+  mounted() {
+    console.log("Mounted");
+    console.log(this.message);
+    console.log(document.getElementById("lifecycle"));
+  },
+  beforeUpdate() {
+    console.log("Before Update");
+    console.log(document.getElementById("lifecycle").textContent);
+  },
+  updated() {
+    console.log("Updated");
+    console.log(document.getElementById("lifecycle").textContent);
+  },
+  beforeUnmount() {
+    console.log("Before Unmount");
+  },
+  unmounted() {
+    console.log("Unmounted");
+  },
 };
 </script>
