@@ -1,13 +1,15 @@
 <template>
   <child-component>
-    <template v-slot:default>
-      <span>Slot Title</span>
+    <!-- without destructuring object -->
+    <template v-slot:default="props">
+      <span>Judul : {{ props.data }}</span>
     </template>
-    <template v-slot:slotContent>
-      <span>Slot Content</span>
+    <template v-slot:slotContent="props">
+      <span>Kontent : {{ props.data }}</span>
     </template>
-    <template v-slot:slotFooter>
-      <span>Slot Footer</span>
+    <!-- with destructuring object -->
+    <template v-slot:slotFooter="{ data }">
+      <span>Footer : {{ data }}</span>
     </template>
   </child-component>
 </template>
