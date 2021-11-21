@@ -1,10 +1,6 @@
 <template>
   <div>{{ message }}</div>
-  <!-- <child-component
-    :model-value="message"
-    @update:model-value="message = $event"
-  /> -->
-  <!-- sama dengan -->
+  <hr />
   <child-component v-model="message" />
 </template>
 
