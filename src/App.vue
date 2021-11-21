@@ -1,16 +1,20 @@
 <template>
-  <div>{{ message }}</div>
-  <input type="text" v-model="message" />
-  <!-- sama dengan -->
-  <input type="text" :value="message" @input="message = $event.target.value" />
+  <button @click="setStatus">Toggle</button>
+  <div v-if="status">true</div>
+  <div v-else>false</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      message: "Hi",
+      status: true,
     };
+  },
+  methods: {
+    setStatus() {
+      this.status = !this.status;
+    },
   },
 };
 </script>
