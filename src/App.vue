@@ -1,20 +1,21 @@
 <template>
-  <button @click="setStatus">Toggle</button>
-  <div v-if="status">true</div>
-  <div v-else>false</div>
+  <ol>
+    <li v-for="(todo, idx) in todos" :key="todo.id">
+      {{ idx }} - {{ todo.activity }}
+    </li>
+  </ol>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      status: true,
+      todos: [
+        { id: 1, activity: "Futsal" },
+        { id: 2, activity: "Badminton" },
+        { id: 3, activity: "Basket" },
+      ],
     };
-  },
-  methods: {
-    setStatus() {
-      this.status = !this.status;
-    },
   },
 };
 </script>
