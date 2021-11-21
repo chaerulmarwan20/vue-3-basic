@@ -1,13 +1,19 @@
 <template>
-  <div>{{ text }}</div>
+  <div>
+    <span>Child Component</span>
+    <button @click="onPress">Click from Child</button>
+  </div>
 </template>
 
 <script>
 export default {
-  props: {
-    text: {
-      type: String,
-      default: "Child Component",
+  emits: ["child-click"],
+  methods: {
+    onClick() {
+      console.log("Click Me");
+    },
+    onPress() {
+      this.$emit("child-click", "Value from Child");
     },
   },
 };

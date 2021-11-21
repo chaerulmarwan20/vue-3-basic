@@ -1,29 +1,20 @@
 <template>
-  <div :class="status ? 'success' : 'danger'">Status</div>
-  <button @click="status = !status">Change</button>
-  <div :class="[boldClass, greenClass]">Hello World</div>
+  <child-component ref="childComponent" @child-click="onPress" />
+  <button @click="clickMe">Button from Parent Component</button>
 </template>
 
 <script>
+import ChildComponent from "./components/ChildComponent.vue";
+
 export default {
-  data() {
-    return {
-      status: true,
-      boldClass: "bold",
-      greenClass: "success",
-    };
+  components: { ChildComponent },
+  methods: {
+    onPress(val) {
+      console.log(val);
+    },
+    clickMe() {
+      this.$refs.childComponent.onClick();
+    },
   },
 };
 </script>
-
-<style>
-.success {
-  color: green;
-}
-.danger {
-  color: red;
-}
-.bold {
-  font-weight: 700;
-}
-</style>
