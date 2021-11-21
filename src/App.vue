@@ -1,32 +1,18 @@
 <template>
-  <div>{{ discount }}</div>
-  <input type="text" v-model="num1" />
-  <input type="text" v-model="num2" />
-  <button @click="addDiscount">Discount</button>
+  <div>{{ message }}</div>
+  <input type="text" v-model="message" />
 </template>
 
 <script>
 export default {
   data() {
     return {
-      num1: 0,
-      num2: 0,
+      message: "Hello World",
     };
   },
-  computed: {
-    discount: {
-      get() {
-        return parseInt(this.num1) + parseInt(this.num2);
-      },
-      set(value) {
-        this.num1 -= value;
-        this.num2 -= value;
-      },
-    },
-  },
-  methods: {
-    addDiscount() {
-      this.discount = 500;
+  watch: {
+    message(value) {
+      console.log("Perubahan di message " + value);
     },
   },
 };
