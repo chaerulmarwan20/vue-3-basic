@@ -1,5 +1,4 @@
 <template>
-  <div>Child Component</div>
   <div>{{ text }}</div>
 </template>
 
@@ -8,7 +7,7 @@ export default {
   props: {
     text: {
       type: String,
-      default: "",
+      default: "Child Component",
     },
   },
 };
