@@ -1,11 +1,21 @@
 <template>
-  <child-component message="Hello World" :number="11" />
+  <component-satu />
 </template>
 
 <script>
-import ChildComponent from "./components/ChildComponent.vue";
+import ComponentSatu from "./components/ComponentSatu.vue";
 
 export default {
-  components: { ChildComponent },
+  data() {
+    return {
+      author: "Chaerul",
+    };
+  },
+  provide() {
+    return {
+      providedAuthor: this.author,
+    };
+  },
+  components: { ComponentSatu },
 };
 </script>
