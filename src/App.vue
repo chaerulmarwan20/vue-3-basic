@@ -1,7 +1,11 @@
 <template>
-  <child-component />
+  <child-component message="Hello World" :number="11" />
 </template>
 
 <script>
-export default {};
+import ChildComponent from "./components/ChildComponent.vue";
+
+export default {
+  components: { ChildComponent },
+};
 </script>
